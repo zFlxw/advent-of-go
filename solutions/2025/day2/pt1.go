@@ -23,8 +23,12 @@ func pt1(input string) (string, error) {
 
 		first, firstErr := strconv.Atoi(parts[0])
 		last, lastErr := strconv.Atoi(parts[1])
-		if firstErr != nil || lastErr != nil {
-			panic("well, input should contain of numbers.")
+		if firstErr != nil {
+			return "", firstErr
+		}
+
+		if lastErr != nil {
+			return "", lastErr
 		}
 
 		for i := first; i <= last; i++ {
